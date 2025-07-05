@@ -1,0 +1,64 @@
+{
+  "admitCards": [
+    {
+      "id": 1,
+      "title": "BPSC 71th Pre Exam Date 2025",
+      "postDate": "2025-07-04",
+      "organization": "Bihar Public Service Commission (BPSC)",
+      "brief": "BPSC has released the Pre Exam Date for the 71th Pre Exam 2025. The exam will be conducted on 13 September 2025. Candidates can check their Exam Date and download their Admit Card (when available) from the official website.",
+      "importantDates": {
+        "Online Apply Start": "02 June 2025",
+        "Online Apply Last": "30 June 2025",
+        "Exam Date": "13 September 2025",
+        "Admit Card": "Before Exam"
+      },
+      "applicationFee": {
+        "General/OBC/EWS": "₹ 600/-",
+        "SC/ST/Female (Bihar)": "₹ 150/-",
+        "PH Candidates": "₹ 150/-"
+      },
+      "ageLimit": {
+        "asOn": "01 August 2025",
+        "minimum": "21/22 Years (Post Wise)",
+        "maximum": "37 Yrs (UR Male), 40 Yrs (Female/BC/EBC), 42 Yrs (SC/ST)"
+      },
+      "vacancyDetails": {
+        "totalPosts": 1298,
+        "posts": [
+          {
+            "name": "Various Posts under 71th Pre",
+            "count": 1171,
+            "eligibility": "Graduation degree in any stream from any recognized university."
+          },
+          {
+            "name": "Financial Administrative Officer",
+            "count": 79,
+            "eligibility": "Graduation degree in Commerce, Economics, Mathematics, or Statistics."
+          },
+          {
+            "name": "Deputy Superintendent of Police (DSP)",
+            "count": 14,
+            "eligibility": "Graduation degree in any stream from any recognized university."
+          }
+        ]
+      },
+      "selectionMode": [
+        "Pre Exam",
+        "Mains Exam"
+      ],
+      "howToDownload": [
+        "Visit the official BPSC website.",
+        "Go to the 'Important Notices' section.",
+        "Search for the '71st Combined Competitive (Preliminary) Examination' notification.",
+        "Click to open and download the PDF for your records.",
+        "Admit Cards will be released in the same section before the exam."
+      ],
+      "importantLinks": [
+        { "name": "Check Pre Exam Date Notice", "url": "#" },
+        { "name": "Apply Online", "url": "#" },
+        { "name": "Download Official Notification", "url": "#" },
+        { "name": "Official Website", "url": "#" }
+      ]
+    }
+  ]
+}

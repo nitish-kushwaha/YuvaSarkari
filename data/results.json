@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "title": "CUET UG Result 2025 (OUT), On july 4 @cuet.nta.nic.in",
+      "postName": "Final Answer Key @cuet.nta.nic.in",
+      "lastUpdated": "2025-07-05",
+      "organization": "National Testing Agency (NTA)",
+      "brief": "The Authority has announced the CUET UG Result 2025 on 04 July 2025. Candidates who are waiting for the CUET UG Scorecard 2025 can download their results using their Roll Number/Application Number and Date of Birth.",
+      "importantDates": {
+        "Application Start": "01 March 2025",
+        "Application Last Date": "24 March 2025",
+        "Exam Date": "13 May to 03 June 2025",
+        "Answer Key Date": "17 June 2025",
+        "Result Date": "04 July 2025"
+      },
+      "applicationFee": {
+        "Gen": "₹1000/-",
+        "EWS/OBC": "₹900/-",
+        "SC/ST/PH": "₹800/-"
+      },
+      "selectionProcess": [
+        "Computer-Based Test (CBT)",
+        "Result Declaration",
+        "Merit List & Cutoff",
+        "Counseling & Admission"
+      ],
+      "howToDownload": [
+        "Visit the official website @cuet.nta.nic.in or use the direct link provided below.",
+        "Locate the CUET UG Result 2025 download link and click on it.",
+        "Enter your Roll Number/Application Number and Date of Birth.",
+        "Click the Submit button.",
+        "Your CUET UG Result 2025 will be displayed on the screen.",
+        "Download or Print the Score Card for future reference."
+      ],
+      "importantLinks": [
+        { "name": "Download Result/ Scorecard (Server 1)", "url": "#" },
+        { "name": "Download Result/ Scorecard (Server 2)", "url": "#" },
+        { "name": "Download Final Answer Key", "url": "#" },
+        { "name": "Official Website", "url": "#" }
+      ]
+    }
+  ]
+}

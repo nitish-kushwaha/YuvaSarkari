@@ -1,0 +1,112 @@
+{
+  "jobs": [
+    {
+      "id": 2,
+      "title": "UPSBCL AE Recruitment 2025",
+      "postName": "Apply Online for Assistant Engineer",
+      "organization": "Uttar Pradesh State Bridge Corporation (UPSBCL)",
+      "postDate": "2025-07-05",
+      "totalPosts": 57,
+      "brief": "UPSBCL has released the new notification for the recruitment of Assistant Engineer (AE) for 57 Posts. Online Registration will be from 7 July 2025 to 7 August 2025.",
+      "importantDates": {
+        "Notification Date": "02 July 2025",
+        "Application Start": "07 July 2025",
+        "Last Date to Apply": "07 August 2025",
+        "Fee Payment Last Date": "07 August 2025",
+        "Exam Date": "Notify Later"
+      },
+      "applicationFee": {
+        "Gen/OBC/EWS": "N/A",
+        "SC/ST": "N/A"
+      },
+      "ageLimit": {
+        "asOn": "01.01.2025",
+        "minimum": "21 Years",
+        "maximum": "40 Years"
+      },
+      "eligibility": [
+        {
+          "post": "Assistant Engineer (AE) Civil / Mechanical",
+          "vacancies": 57,
+          "details": "B.Tech Degree in Civil / Mechanical Engineering, GATE 2025 Qualified OR Equivalent Eligibility From Any Recognized University/ Board/ Institutions in India."
+        }
+      ],
+      "salary": {
+        "payScale": "₹56,100 to ₹1,77,500/- Per Month",
+        "payLevel": "Level 10"
+      },
+      "selectionProcess": [
+        "Merit List Based on GATE 2025 Score",
+        "Document Verification",
+        "Medical Examination",
+        "Final Merit List"
+      ],
+      "howToApply": [
+        "Check the official Notification PDF.",
+        "Click on the Apply Online Link below or visit bridgecorporationltd.com.",
+        "Fill out the Online Application Form.",
+        "Upload the Required Documents.",
+        "Pay Application Fees (if applicable).",
+        "Finally Print the Application Form."
+      ],
+      "importantLinks": {
+        "applyOnline": "#",
+        "downloadNotification": "#",
+        "officialWebsite": "#"
+      }
+    },
+    {
+      "id": 1,
+      "title": "RRC Eastern Railway Apprentice Recruitment 2025",
+      "postName": "RRC ER Apprentice Post",
+      "organization": "Railway Recruitment Cell (RRC Eastern Railway)",
+      "postDate": "2025-07-05",
+      "brief": "Railway Recruitment Cell (RRC Eastern Railway), has released a short notice on official website for the recruitment of RRC ER Apprentice Post. This recruitment is for 3115 positions. RRC Application Form will start from 07 July 2025 & the candidates can apply till the 08 August 2025. Candidates must check the complete details for RRC Eastern Railway Apprentice Recruitment 2025. which has given below.",
+      "importantDates": {
+        "Notification Date": "",
+        "Application Start": "07 July 2025",
+        "Last Date to Apply": "08 August 2025",
+        "Exam Date": "Notify Later"
+      },
+      "applicationFee": {
+        "Gen/OBC/EWS": "Soon",
+        "SC/ST": "Soon"
+      },
+      "ageLimit": {
+        "asOn": "Railway provides age relaxation for the Railway RRC ER Apprentice position as per their regulations. Total Post 3115 Post",
+        "minimum": "Soon",
+        "maximum": "Soon"
+      },
+      "eligibility": [
+        {
+          "post": "RRC ER Apprentice Post.",
+          "vacancies": 3115,
+          "details": "Available Soon"
+        }
+      ],
+      "salary": {
+        "payScale": "SOON",
+        "payLevel": "SOON"
+      },
+      "selectionProcess": [
+        "Based On Merit List",
+        "Document Verification",
+        "Tie-Breaking Rules",
+        "Final Allotment"
+      ],
+      "howToApply": [
+        "Interested candidates who wish to apply for the RRC ER post can submit their application online before 08 August 2025.",
+        "Use the click here link provided below under important link section to apply directly.",
+        "Alternatively, visit the official website of RRC ER to complete the application process online.",
+        "Make sure to complete the application before the deadline 08 August 2025."
+      ],
+      "importantLinks": {
+        "applyOnline": "#",
+        "downloadNotification": "#",
+        "officialWebsite": "https://rrcer.org/"
+      }
+    }
+
+
+  ]
+}

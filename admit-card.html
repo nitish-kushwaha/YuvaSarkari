@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Admit Cards - YuvaSarkari</title>
+    <meta name="description" content="Download admit cards and hall tickets for all upcoming government exams. Get direct links and updates for all Sarkari exam admit cards.">
+<meta name="keywords" content="admit card download, exam hall ticket, sarkari admit card, exam notice">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="brand"><a href="index.html">YuvaSarkari</a></div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Latest Jobs</a></li>
+                    <li><a href="admit-card.html" class="active">Admit Card</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="syllabus.html">Syllabus</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="mobile-nav"></nav>
+    </header>
+
+    <main class="list-page-container">
+        <div class="container">
+            <h1 class="list-page-title">All Admit Cards</h1>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search for admit cards...">
+                <i class="fas fa-microphone mic-icon"></i>
+            </div>
+            <div id="item-list" class="item-list-wrapper">
+                <div class="loading-spinner"></div>
+            </div>
+            <div id="pagination-container" class="pagination-container"></div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <h3>YuvaSarkari</h3>
+                <p>Your one-stop destination for the latest government job alerts, results, admit cards, and syllabus
+                    information across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Important Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024-2025 YuvaSarkari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- SETUP ---
+            const searchInput = document.getElementById('search-input');
+            const itemList = document.getElementById('item-list');
+            const paginationContainer = document.getElementById('pagination-container');
+            const micIcon = document.querySelector('.mic-icon');
+            let allItems = [], filteredItems = [];
+            let currentPage = 1, rowsPerPage = 10;
+
+            // --- DATA FETCHING ---
+            fetch('data/admit-cards.json')
+                .then(response => response.json())
+                .then(data => {
+                    allItems = data.admitCards;
+                    filteredItems = allItems;
+                    displayPage(currentPage);
+                });
+
+            // --- DISPLAY & PAGINATION LOGIC ---
+            function displayPage(page) {
+                currentPage = page;
+                itemList.innerHTML = '';
+                const start = (currentPage - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const paginatedItems = filteredItems.slice(start, end);
+                paginatedItems.forEach(item => {
+                    const card = document.createElement('a');
+                    card.href = `admit-card-detail.html?id=${item.id}`;
+                    card.className = 'list-item-card';
+                    card.innerHTML = `<h3>${item.title}</h3>`;
+                    itemList.appendChild(card);
+                });
+                setupPagination();
+            }
+
+            function setupPagination() {
+                paginationContainer.innerHTML = '';
+                const pageCount = Math.ceil(filteredItems.length / rowsPerPage);
+                if (pageCount <= 1) return;
+
+                const prevButton = document.createElement('button');
+                prevButton.className = 'pagination-btn'; prevButton.innerText = 'Previous';
+                if (currentPage === 1) prevButton.disabled = true;
+                prevButton.addEventListener('click', () => displayPage(currentPage - 1));
+                paginationContainer.appendChild(prevButton);
+
+                for (let i = 1; i <= pageCount; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'pagination-btn'; btn.innerText = i;
+                    if (i === currentPage) btn.classList.add('active');
+                    btn.addEventListener('click', () => displayPage(i));
+                    paginationContainer.appendChild(btn);
+                }
+
+                const nextButton = document.createElement('button');
+                nextButton.className = 'pagination-btn'; nextButton.innerText = 'Next';
+                if (currentPage === pageCount) nextButton.disabled = true;
+                nextButton.addEventListener('click', () => displayPage(currentPage + 1));
+                paginationContainer.appendChild(nextButton);
+            }
+
+            // --- SEARCH & OTHER LOGIC ---
+            searchInput.addEventListener('input', e => {
+                const searchTerm = e.target.value.toLowerCase();
+                filteredItems = allItems.filter(item => item.title.toLowerCase().includes(searchTerm));
+                displayPage(1);
+            });
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                micIcon.addEventListener('click', () => recognition.start());
+                recognition.onstart = () => micIcon.classList.add('is-listening');
+                recognition.onend = () => micIcon.classList.remove('is-listening');
+                recognition.onresult = event => {
+                    searchInput.value = event.results[0][0].transcript;
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                };
+            } else { micIcon.style.display = 'none'; }
+
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.innerHTML = `<ul><li><a href="index.html">Home</a></li><li><a href="jobs.html">Latest Jobs</a></li><li><a href="admit-card.html">Admit Card</a></li><li><a href="results.html">Results</a></li><li><a href="syllabus.html">Syllabus</a></li></ul>`;
+            if (hamburger) { hamburger.addEventListener('click', () => mobileNav.classList.toggle('active')); }
+        });
+    </script>
+</body>
+
+</html>

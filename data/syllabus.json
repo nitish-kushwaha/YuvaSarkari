@@ -1,0 +1,87 @@
+{
+  "syllabus": [
+    {
+      "id": 1,
+      "title": "UPSSSC Various Posts Syllabus 2023",
+      "organization": "Uttar Pradesh Subordinate Services Selection Commission (UPSSSC)",
+      "associatedPosts": "Enforcement Constable, Dental Hygienist, X Ray Technician & Various Posts Examination 2023 – 24",
+      "examMode": [
+        "Preliminary Examination",
+        "Main Examination",
+        "Interview / Skill Test"
+      ],
+      "examDetails": {
+        "Type of Question": "Objective",
+        "Full Marks": "Varies by exam",
+        "Mode of Examination": "Online / Offline",
+        "Duration": "120 minutes (approx.)",
+        "Marking Scheme": "Negative Marking may be applicable"
+      },
+      "mainContent": {
+        "introduction": "The Uttar Pradesh Subordinate Services Selection Commission (UPSSSC) conducts various exams to recruit eligible candidates for different government posts in the state of Uttar Pradesh, India. These exams follow a specific pattern and syllabus to ensure a fair evaluation of candidates.",
+        "examPattern": {
+          "title": "UPSSSC Exam Pattern",
+          "stages": [
+            {
+              "name": "Preliminary Examination (if applicable)",
+              "points": [
+                "This stage is usually for screening purposes.",
+                "It consists of objective-type multiple-choice questions.",
+                "Covers topics such as General Knowledge, General Intelligence, General Science, and General Hindi."
+              ]
+            },
+            {
+              "name": "Mains Examination",
+              "points": [
+                "The main examination is more comprehensive and specific to the job profile.",
+                "It comprises multiple papers, each focusing on different subjects relevant to the post."
+              ]
+            },
+            {
+              "name": "Interview / Skill Test",
+              "points": [
+                "Candidates who qualify in the main examination are called for an interview or skill test.",
+                "The skill test assesses the practical skills required for certain positions."
+              ]
+            }
+          ]
+        },
+        "examSyllabus": {
+          "title": "UPSSSC Exam Syllabus",
+          "subjects": [
+            {
+              "name": "General Knowledge and Current Affairs",
+              "topics": ["Current events", "History and culture of India", "Geography of India", "Indian Polity and Constitution", "Economics and social development"]
+            },
+            {
+              "name": "General Intelligence",
+              "topics": ["Analogies", "Similarities and differences", "Problem-solving", "Analysis"]
+            },
+            {
+              "name": "General Hindi",
+              "topics": ["Vocabulary", "Grammar", "Sentence structure", "Comprehension"]
+            },
+            {
+              "name": "Mathematics",
+              "topics": ["Number systems", "Ratio and proportion", "Percentage", "Profit and loss", "Time and work"]
+            }
+          ]
+        },
+        "preparationTips": {
+            "title": "Exam Preparation Tips",
+            "tips": [
+                "Gain a comprehensive understanding of the exam pattern and syllabus.",
+                "Divide your study time for each section based on the weightage of marks.",
+                "Solve previous years’ question papers and take mock tests.",
+                "Keep yourself updated with current affairs.",
+                "Maintain a healthy lifestyle and stay confident."
+            ]
+        }
+      },
+      "importantLinks": [
+        { "name": "Download Syllabus PDF (Official)", "url": "#" },
+        { "name": "Official Website", "url": "#" }
+      ]
+    }
+  ]
+}

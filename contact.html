@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - YuvaSarkari</title>
+    
+    <meta name="description" content="Contact us for any queries, feedback, or suggestions regarding our YuvaSarkari portal.">
+    <meta name="keywords" content="contact us, support, feedback, help">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="brand"><a href="index.html">YuvaSarkari</a></div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Latest Jobs</a></li>
+                    <li><a href="admit-card.html">Admit Card</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="syllabus.html">Syllabus</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="mobile-nav"></nav>
+    </header>
+
+    <main class="list-page-container">
+        <div class="container">
+            <h1 class="list-page-title">Contact Us</h1>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>If you have any query, suggestion or feedback, feel free to contact us. We will get back to you as soon as possible.</p>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@yourwebsite.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="#" id="contact-form-element">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content"><div class="footer-about"><h3>YuvaSarkari</h3><p>Your one-stop destination for the latest government job alerts, results, admit cards, and syllabus information across India.</p></div><div class="footer-links"><h4>Important Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="#">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#">Privacy Policy</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2024-2025 YuvaSarkari. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.innerHTML = `<ul><li><a href="index.html">Home</a></li><li><a href="jobs.html">Latest Jobs</a></li><li><a href="admit-card.html">Admit Card</a></li><li><a href="results.html">Results</a></li><li><a href="syllabus.html">Syllabus</a></li><li><a href="contact.html">Contact</a></li></ul>`;
+            if (hamburger) {
+                hamburger.addEventListener('click', () => mobileNav.classList.toggle('active'));
+            }
+
+            // Contact Form Logic
+            const contactForm = document.getElementById('contact-form-element');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! This is a demo form.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

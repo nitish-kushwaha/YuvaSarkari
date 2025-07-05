@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Latest Jobs - YuvaSarkari</title>
+    <meta name="description"
+        content="Browse a complete list of all the latest government job (Sarkari Naukri) notifications from across India. Find your next career opportunity here.">
+    <meta name="keywords"
+        content="all government jobs, latest sarkari naukri, job list, recruitment portal, employment news">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="brand"><a href="index.html">YuvaSarkari</a></div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html" class="active">Latest Jobs</a></li>
+                    <li><a href="admit-card.html">Admit Card</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="syllabus.html">Syllabus</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="mobile-nav"></nav>
+    </header>
+
+    <main class="list-page-container">
+        <div class="container">
+            <h1 class="list-page-title">All Latest Jobs</h1>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search for jobs by title or organization...">
+                <i class="fas fa-microphone mic-icon"></i>
+            </div>
+            <div id="item-list" class="item-list-wrapper">
+                <div class="loading-spinner"></div>
+            </div>
+            <div id="pagination-container" class="pagination-container"></div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <h3>YuvaSarkari</h3>
+                <p>Your one-stop destination for the latest government job alerts, results, admit cards, and syllabus
+                    information across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Important Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024-2025 YuvaSarkari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- // In jobs.html file, replace the entire <script> tag content -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- BASIC PAGE SETUP ---
+            const searchInput = document.getElementById('search-input');
+            const itemList = document.getElementById('item-list');
+            const paginationContainer = document.getElementById('pagination-container');
+            const micIcon = document.querySelector('.mic-icon');
+
+            let allJobs = [];
+            let filteredJobs = [];
+
+            // --- PAGINATION STATE ---
+            let currentPage = 1;
+            let rowsPerPage = 15; // Number of items per page
+
+            // --- DATA FETCHING ---
+            fetch('data/jobs.json')
+                .then(response => response.json())
+                .then(data => {
+                    allJobs = data.jobs;
+                    filteredJobs = allJobs;
+                    displayPage(currentPage);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+
+            // --- FUNCTION TO DISPLAY A SPECIFIC PAGE ---
+            function displayPage(page) {
+                currentPage = page;
+                itemList.innerHTML = '';
+
+                const start = (currentPage - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const paginatedItems = filteredJobs.slice(start, end);
+
+                paginatedItems.forEach(job => {
+                    const item = document.createElement('a');
+                    item.href = `post.html?id=${job.id}`;
+                    item.className = 'list-item-card';
+                    item.innerHTML = `<h3>${job.title}</h3><p>${job.organization}</p><span class="view-details-btn">View Details &rarr;</span>`;
+                    itemList.appendChild(item);
+                });
+
+                setupPagination();
+            }
+
+            // --- UPDATED: FUNCTION TO CREATE PAGINATION CONTROLS ---
+            function setupPagination() {
+                paginationContainer.innerHTML = '';
+                const pageCount = Math.ceil(filteredJobs.length / rowsPerPage);
+
+                // Don't show pagination if there's only one page
+                if (pageCount <= 1) return;
+
+                // PREVIOUS BUTTON
+                const prevButton = document.createElement('button');
+                prevButton.className = 'pagination-btn';
+                prevButton.innerText = 'Previous';
+                paginationContainer.appendChild(prevButton);
+                if (currentPage === 1) {
+                    prevButton.disabled = true;
+                }
+                prevButton.addEventListener('click', () => {
+                    displayPage(currentPage - 1);
+                });
+
+                // PAGE NUMBER BUTTONS
+                for (let i = 1; i <= pageCount; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'pagination-btn';
+                    btn.innerText = i;
+                    if (i === currentPage) {
+                        btn.classList.add('active');
+                    }
+                    btn.addEventListener('click', () => {
+                        displayPage(i);
+                    });
+                    paginationContainer.appendChild(btn);
+                }
+
+                // NEXT BUTTON
+                const nextButton = document.createElement('button');
+                nextButton.className = 'pagination-btn';
+                nextButton.innerText = 'Next';
+                paginationContainer.appendChild(nextButton);
+                if (currentPage === pageCount) {
+                    nextButton.disabled = true;
+                }
+                nextButton.addEventListener('click', () => {
+                    displayPage(currentPage + 1);
+                });
+            }
+
+            // --- SEARCH FILTER ---
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                filteredJobs = allJobs.filter(job =>
+                    job.title.toLowerCase().includes(searchTerm) ||
+                    job.organization.toLowerCase().includes(searchTerm)
+                );
+                displayPage(1);
+            });
+
+            // --- VOICE SEARCH & MOBILE MENU LOGIC (No changes here) ---
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                micIcon.addEventListener('click', () => recognition.start());
+                recognition.onstart = () => micIcon.classList.add('is-listening');
+                recognition.onend = () => micIcon.classList.remove('is-listening');
+                recognition.onresult = (event) => {
+                    searchInput.value = event.results[0][0].transcript;
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                };
+            } else { micIcon.style.display = 'none'; }
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.innerHTML = `<ul><li><a href="index.html">Home</a></li><li><a href="jobs.html">Latest Jobs</a></li><li><a href="admit-card.html">Admit Card</a></li><li><a href="results.html">Results</a></li><li><a href="syllabus.html">Syllabus</a></li></ul>`;
+            if (hamburger) { hamburger.addEventListener('click', () => mobileNav.classList.toggle('active')); }
+        });
+    </script>
+</body>
+
+</html>
