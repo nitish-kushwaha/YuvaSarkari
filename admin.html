@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Generate Detailed Job JSON</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .admin-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #0077b6;
+            padding: 0 10px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .btn-generate {
+            background-color: #28a745;
+            width: 100%;
+        }
+
+        .btn-copy {
+            background-color: #007bff;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .btn-clear {
+            background-color: #dc3545;
+        }
+
+        #json-output {
+            background-color: #2b3e50;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>New Job Post Generator</h1>
+        <form id="job-form">
+            <fieldset>
+                <legend>Basic Info</legend>
+                <div class="form-group"><label for="id">Job ID (Unique Number)</label><input type="number" id="id"
+                        required></div>
+                <div class="form-group"><label for="title">Title</label><input type="text" id="title" required></div>
+                <div class="form-group"><label for="postName">Post Name</label><input type="text" id="postName"></div>
+                <div class="form-group"><label for="organization">Organization</label><input type="text"
+                        id="organization" required></div>
+                <div class="form-group"><label for="postDate">Post Date (YYYY-MM-DD)</label><input type="date"
+                        id="postDate" required></div>
+                <div class="form-group"><label for="brief">Brief Description</label><textarea id="brief"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Important Dates</legend>
+                <div class="form-group"><label for="date-notification">Notification Date</label><input type="text"
+                        id="date-notification"></div>
+                <div class="form-group"><label for="date-start">Application Start</label><input type="text"
+                        id="date-start"></div>
+                <div class="form-group"><label for="date-last">Last Date to Apply</label><input type="text"
+                        id="date-last"></div>
+                <div class="form-group"><label for="date-exam">Exam Date</label><input type="text" id="date-exam"
+                        value="Notify Later"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Application Fee</legend>
+                <div class="form-group"><label for="fee-gen">Gen/OBC/EWS</label><input type="text" id="fee-gen"
+                        value="N/A"></div>
+                <div class="form-group"><label for="fee-scst">SC/ST</label><input type="text" id="fee-scst" value="N/A">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Age Limit</legend>
+                <div class="form-group"><label for="age-ason">As On Date</label><input type="text" id="age-ason"></div>
+                <div class="form-group"><label for="age-min">Minimum Age</label><input type="text" id="age-min"></div>
+                <div class="form-group"><label for="age-max">Maximum Age</label><input type="text" id="age-max"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Eligibility (add one for now)</legend>
+                <div class="form-group"><label for="eligibility-post">Post Name</label><input type="text"
+                        id="eligibility-post"></div>
+                <div class="form-group"><label for="eligibility-vacancies">Vacancies</label><input type="number"
+                        id="eligibility-vacancies"></div>
+                <div class="form-group"><label for="eligibility-details">Eligibility Details</label><textarea
+                        id="eligibility-details"></textarea></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Salary</legend>
+                <div class="form-group"><label for="salary-payscale">Pay Scale</label><input type="text"
+                        id="salary-payscale"></div>
+                <div class="form-group"><label for="salary-paylevel">Pay Level</label><input type="text"
+                        id="salary-paylevel"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Lists (One point per line)</legend>
+                <div class="form-group"><label for="selectionProcess">Selection Process</label><textarea
+                        id="selectionProcess"></textarea></div>
+                <div class="form-group"><label for="howToApply">How to Apply</label><textarea
+                        id="howToApply"></textarea></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Important Links</legend>
+                <div class="form-group"><label for="link-apply">Apply Online URL</label><input type="text"
+                        id="link-apply" value="#"></div>
+                <div class="form-group"><label for="link-notification">Download Notification URL</label><input
+                        type="text" id="link-notification" value="#"></div>
+                <div class="form-group"><label for="link-website">Official Website URL</label><input type="text"
+                        id="link-website" value="#"></div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-generate">Generate JSON</button>
+                <button type="button" id="clear-btn" class="btn btn-clear">Clear Form & Storage</button>
+            </div>
+        </form>
+
+        <pre id="json-output"></pre>
+        <button id="copy-btn" class="btn btn-copy">Copy to Clipboard</button>
+    </div>
+
+    <script>
+        const form = document.getElementById('job-form');
+        const outputElement = document.getElementById('json-output');
+        const copyButton = document.getElementById('copy-btn');
+        const clearButton = document.getElementById('clear-btn');
+        const formFields = form.querySelectorAll('input, textarea');
+        const localStorageKey = 'jobFormData';
+
+        // --- 1. SAVE FORM DATA TO LOCAL STORAGE ON INPUT ---
+        form.addEventListener('input', () => {
+            const formData = {};
+            formFields.forEach(field => {
+                formData[field.id] = field.value;
+            });
+            localStorage.setItem(localStorageKey, JSON.stringify(formData));
+        });
+
+        // --- 2. LOAD FORM DATA FROM LOCAL STORAGE ON PAGE LOAD ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = localStorage.getItem(localStorageKey);
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                formFields.forEach(field => {
+                    if (formData[field.id]) {
+                        field.value = formData[field.id];
+                    }
+                });
+            }
+        });
+
+        // --- 3. GENERATE JSON ON SUBMIT ---
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Helper function to split textarea into an array
+            const textToArray = (text) => text.split('\n').map(line => line.trim()).filter(line => line);
+
+            const jobData = {
+                id: parseInt(document.getElementById('id').value),
+                title: document.getElementById('title').value,
+                postName: document.getElementById('postName').value,
+                organization: document.getElementById('organization').value,
+                postDate: document.getElementById('postDate').value,
+                brief: document.getElementById('brief').value,
+                importantDates: {
+                    "Notification Date": document.getElementById('date-notification').value,
+                    "Application Start": document.getElementById('date-start').value,
+                    "Last Date to Apply": document.getElementById('date-last').value,
+                    "Exam Date": document.getElementById('date-exam').value,
+                },
+                applicationFee: {
+                    "Gen/OBC/EWS": document.getElementById('fee-gen').value,
+                    "SC/ST": document.getElementById('fee-scst').value,
+                },
+                ageLimit: {
+                    asOn: document.getElementById('age-ason').value,
+                    minimum: document.getElementById('age-min').value,
+                    maximum: document.getElementById('age-max').value,
+                },
+                eligibility: [{
+                    post: document.getElementById('eligibility-post').value,
+                    vacancies: parseInt(document.getElementById('eligibility-vacancies').value),
+                    details: document.getElementById('eligibility-details').value,
+                }],
+                salary: {
+                    payScale: document.getElementById('salary-payscale').value,
+                    payLevel: document.getElementById('salary-paylevel').value
+                },
+                selectionProcess: textToArray(document.getElementById('selectionProcess').value),
+                howToApply: textToArray(document.getElementById('howToApply').value),
+                importantLinks: {
+                    applyOnline: document.getElementById('link-apply').value,
+                    downloadNotification: document.getElementById('link-notification').value,
+                    officialWebsite: document.getElementById('link-website').value,
+                }
+            };
+
+            const jsonString = JSON.stringify(jobData, null, 4);
+            outputElement.textContent = `,\n${jsonString}`; // Adds a comma for easy pasting
+            outputElement.style.display = 'block';
+            copyButton.style.display = 'block';
+        });
+
+        // --- 4. COPY & CLEAR BUTTONS ---
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(outputElement.textContent).then(() => {
+                alert('JSON copied to clipboard!');
+            });
+        });
+
+        clearButton.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear the form and all saved data?')) {
+                form.reset();
+                localStorage.removeItem(localStorageKey);
+                outputElement.style.display = 'none';
+                copyButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
