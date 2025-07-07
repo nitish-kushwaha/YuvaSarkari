@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kya aap ko yaad hu?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* CSS कोड में कोई बदलाव नहीं है, यह पहले जैसा ही है */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+        .card {
+            background-color: #fce4ec;
+            border: 3px solid #ab47bc;
+            border-radius: 15px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .top-hearts svg {
+            width: 80px;
+            height: auto;
+            fill: #e53935;
+            margin-bottom: 15px;
+        }
+        .prompt-text {
+            color: #8e24aa;
+            font-size: 1.8em;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+        .input-container {
+            position: relative;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .code-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #0d47a1;
+            border-radius: 8px;
+            background-color: #ffffff;
+            font-size: 1.1em;
+            box-sizing: border-box;
+        }
+        .code-input::placeholder {
+            color: #757575;
+            font-style: italic;
+        }
+        .input-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 15px solid #0d47a1;
+        }
+        .forgot-code {
+            color: #8e24aa;
+            font-size: 1.1em;
+            font-style: italic;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        #hint-text {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 12px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #1565c0;
+        }
+        .button-icon {
+            margin-left: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .bottom-hearts {
+            margin-top: 20px;
+            color: #e53935;
+            font-size: 2em;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="top-hearts">
+            <svg viewBox="0 0 200 100">
+              <path d="M50,20 C10,-10 90,-10 50,40 M150,20 C110,-10 190,-10 150,40 M100,25 C70,0 130,0 100,25" stroke="#e53935" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M50,20 C10,-10 90,-10 50,40" fill="#e53935"/>
+              <path d="M150,20 C110,-10 190,-10 150,40" fill="#e53935"/>
+            </svg>
+        </div>
+
+        <p class="prompt-text">Kya aap ko yaad hu ???</p>
+        <p class="prompt-text">Yaad hu to batao...</p>
+
+        <div class="input-container">
+            <input type="text" id="codeInput" class="code-input" placeholder="Code......">
+        </div>
+
+        <p id="forgotCode" class="forgot-code">forget code??</p>
+        
+        <div id="hint-text">Ka ho etna jaldi bhula gailu , are babu jisse ham chat suru karte hai</div>
+
+        <button id="submitButton" class="submit-button">
+            Aage Chale <span class="button-icon">&raquo;</span>
+        </button>
+        
+        <div class="bottom-hearts">
+             &#x2764; &#x2764; &#x2764;
+        </div>
+    </div>
+
+    <script>
+        const codeInput = document.getElementById('codeInput');
+        const submitButton = document.getElementById('submitButton');
+        const forgotCode = document.getElementById('forgotCode');
+        const hintText = document.getElementById('hint-text');
+
+        submitButton.addEventListener('click', function() {
+            // User के input को लेना और शुरू-आखिर के space हटाना
+            const userInput = codeInput.value.trim();
+
+            // यह पैटर्न 'n' से शुरू होने वाले, बीच में किसी भी इमोजी वाले,
+            // और 'k' पर खत्म होने वाले कोड को ढूंढेगा।
+            // यह Capital/Small लेटर और space को भी handle करता है।
+            const correctPattern = /^n\s*\p{Emoji}\s*k$/iu;
+
+            // जांचना कि user का input पैटर्न से मेल खाता है या नहीं
+            if (correctPattern.test(userInput)) {
+                // अगर कोड सही है, तो page2.html पर जाएं
+                window.location.href = 'page2.html';
+            } else {
+                // अगर कोड गलत है, तो alert दिखाएं
+                alert("Bas bhula gailu, thik se code daal.");
+                codeInput.value = ''; // गलत इनपुट को खाली कर दें
+            }
+        });
+
+        forgotCode.addEventListener('click', function() {
+            // hint को दिखाना या छिपाना
+            if (hintText.style.display === 'block') {
+                hintText.style.display = 'none';
+            } else {
+                hintText.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
