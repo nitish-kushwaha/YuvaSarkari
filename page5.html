@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Nikki!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2c0a37, #0f0212);
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+
+        #reveal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #1a0321;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            cursor: pointer;
+            transition: opacity 1s ease-out;
+        }
+        
+        #reveal-overlay h2 {
+            color: white;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            text-shadow: 0 0 15px #ff00ff;
+            animation: pulse-text 2s infinite;
+        }
+
+        @keyframes pulse-text {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fade-in 2s ease-in-out 0.5s forwards;
+        }
+
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+
+        #profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 30px #ff00ff, 0 0 40px #8a2be2;
+            object-fit: cover;
+            animation: scale-up 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            transform: scale(0);
+        }
+
+        @keyframes scale-up {
+            to { transform: scale(1); }
+        }
+        
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            color: #f7e0ff;
+            text-shadow: 0 0 10px #f7e0ff, 0 0 20px #ff00ff;
+            margin: 20px 0 10px 0;
+            animation: slide-in 1.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes slide-in {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .message {
+            max-width: 600px;
+            font-size: 1.3em;
+            line-height: 1.7;
+            color: #e0e0e0;
+            animation: slide-in 1.5s 0.5s forwards;
+            opacity: 0;
+        }
+        
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 20px;
+            opacity: 0.8;
+            animation: confetti-fall linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            from { transform: translateY(0) rotateZ(0); }
+            to { transform: translateY(105vh) rotateZ(720deg); }
+        }
+    </style>
+</head>
+<body>
+    
+    <audio id="birthday-song" loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="reveal-overlay">
+        <h2>Click for your Surprise!</h2>
+    </div>
+
+    <div class="main-content">
+        <img id="profile-pic" src="YOUR_PHOTO.jpg" alt="Happy Birthday Nikki">
+        
+        <h1>Happy Birthday, Nikki</h1>
+        
+        <p class="message">
+            आज का दिन दुनिया के सबसे प्यारे इंसान का दिन है... तुम्हारा दिन!
+            तुम्हारी हंसी मेरी दुनिया को रोशन करती है और तुम्हारा साथ मेरी जिंदगी को पूरा करता है।
+            मैं तुम्हारे सारे सपनों के सच होने की कामना करता हूँ। हमेशा ऐसे ही मुस्कुराती रहो।
+            <br><br>
+            I love you more than words can say.
+        </p>
+    </div>
+
+    <script>
+        const revealOverlay = document.getElementById('reveal-overlay');
+        const birthdaySong = document.getElementById('birthday-song');
+
+        revealOverlay.addEventListener('click', () => {
+            // प्ले बटन पर क्लिक होते ही...
+            revealOverlay.style.opacity = '0';
+            setTimeout(() => {
+                revealOverlay.style.display = 'none';
+            }, 1000);
+
+            // गाना चलाएं
+            birthdaySong.play();
+
+            // कंफ़ेटी बनाएं
+            createConfetti();
+        });
+
+        function createConfetti() {
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800'];
+            setInterval(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 2 to 5 seconds
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(confetti);
+
+                // कुछ समय बाद कंफ़ेटी को हटा दें ताकि पेज धीमा न हो
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }, 100); // हर 100ms में एक नया कंफ़ेटी
+        }
+    </script>
+</body>
+</html>

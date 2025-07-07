@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teri Pasand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            padding: 20px 0;
+        }
+
+        .card {
+            background-color: #fce4ec;
+            border: 3px solid #ab47bc;
+            border-radius: 15px;
+            padding: 25px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-hearts svg {
+            width: 70px;
+            height: auto;
+            fill: #e53935;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5em;
+            color: #c2185b;
+            margin: 0;
+        }
+
+        .poem-content p {
+            color: #8e24aa;
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+        
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .next-button {
+            background: linear-gradient(145deg, #fe8c8c, #f44336);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-family: 'Great Vibes', cursive;
+            color: black;
+            font-size: 3em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="header-hearts">
+                <svg viewBox="0 0 200 100">
+                    <path d="M50,20 C10,-10 90,-10 50,40 M150,20 C110,-10 190,-10 150,40 M100,25 C70,0 130,0 100,25" stroke="#e53935" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M50,20 C10,-10 90,-10 50,40" fill="#e53935"/>
+                    <path d="M150,20 C110,-10 190,-10 150,40" fill="#e53935"/>
+                </svg>
+            </div>
+            <h1 class="title">Teri Pasand</h1>
+        </div>
+
+        <div class="poem-content">
+            <p>Momos, barish, aur chocolate ka pyaar,</p>
+            <p>Dal-chawal ho toh din lage taiyaar |</p>
+            <p>Books mein Business Studies ka craze,</p>
+            <p>Teri smile de jaye pure din ka blaze |</p>
+            <p>Par meri koi dost aaye nazar,</p>
+            <p>Tu ban jaaye seedha thunder ka weather | ⚡😅</p>
+            <p>Tere gusse mein bhi hai ek pyaar ki baat,</p>
+            <p>Tu hi toh hai meri zindagi ka sath-sath |</p>
+        </div>
+
+        <div class="button-container">
+            <button class="next-button" id="nextPageButton">Aage</button>
+        </div>
+    </div>
+
+    <script>
+        // बटन को उसके ID से चुनना
+        const nextButton = document.getElementById('nextPageButton');
+
+        // बटन पर क्लिक इवेंट लगाना
+        nextButton.addEventListener('click', function() {
+            // जब बटन पर क्लिक हो, तो page3.html पर जाएं
+            window.location.href = 'page3.html';
+        });
+    </script>
+
+</body>
+</html>

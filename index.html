@@ -1,146 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YuvaSarkari</title>
-    <meta name="description" content="Find all latest government jobs (Sarkari Naukri), Sarkari Result, Admit Card, Syllabus, and Exam notifications in one place. Your one-stop portal for all government job alerts.">
-<meta name="keywords" content="sarkari result, sarkari naukri, government jobs, latest jobs, admit card, results, syllabus, recruitment 2025">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Kya aap ko yaad hu?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* CSS कोड में कोई बदलाव नहीं है, यह पहले जैसा ही है */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+        .card {
+            background-color: #fce4ec;
+            border: 3px solid #ab47bc;
+            border-radius: 15px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .top-hearts svg {
+            width: 80px;
+            height: auto;
+            fill: #e53935;
+            margin-bottom: 15px;
+        }
+        .prompt-text {
+            color: #8e24aa;
+            font-size: 1.8em;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+        .input-container {
+            position: relative;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .code-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #0d47a1;
+            border-radius: 8px;
+            background-color: #ffffff;
+            font-size: 1.1em;
+            box-sizing: border-box;
+        }
+        .code-input::placeholder {
+            color: #757575;
+            font-style: italic;
+        }
+        .input-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 15px solid #0d47a1;
+        }
+        .forgot-code {
+            color: #8e24aa;
+            font-size: 1.1em;
+            font-style: italic;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        #hint-text {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 12px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #1565c0;
+        }
+        .button-icon {
+            margin-left: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .bottom-hearts {
+            margin-top: 20px;
+            color: #e53935;
+            font-size: 2em;
+            letter-spacing: 5px;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container navbar">
-            <div class="brand">
-                <a href="index.html">YuvaSarkari</a>
-            </div>
-
-            <nav class="nav-links">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="jobs.html">Latest Jobs</a></li>
-                    <li><a href="admit-card.html">Admit Card</a></li>
-                    <li><a href="results.html">Results</a></li>
-                    <li><a href="syllabus.html">Syllabus</a></li>
-                </ul>
-            </nav>
-
-            <div class="social-icons">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+    <div class="card">
+        <div class="top-hearts">
+            <svg viewBox="0 0 200 100">
+              <path d="M50,20 C10,-10 90,-10 50,40 M150,20 C110,-10 190,-10 150,40 M100,25 C70,0 130,0 100,25" stroke="#e53935" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M50,20 C10,-10 90,-10 50,40" fill="#e53935"/>
+              <path d="M150,20 C110,-10 190,-10 150,40" fill="#e53935"/>
+            </svg>
         </div>
 
-        <nav class="mobile-nav">
-             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Latest Jobs</a></li>
-                <li><a href="admit-card.html">Admit Card</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="syllabus.html">Syllabus</a></li>
-            </ul>
-        </nav>
-    </header>
+        <p class="prompt-text">Kya aap ko yaad hu ???</p>
+        <p class="prompt-text">Yaad hu to batao...</p>
 
-    <!-- hero section  -->
+        <div class="input-container">
+            <input type="text" id="codeInput" class="code-input" placeholder="Code......">
+        </div>
 
-   <section class="hero-section">
-    <div class="container">
-        <h1>SAB SE PAHLE HAM</h1>
+        <p id="forgotCode" class="forgot-code">forget code??</p>
+        
+        <div id="hint-text">Ka ho etna jaldi bhula gailu , are babu jisse ham chat suru karte hai</div>
 
-        <div class="hero-content">
-            <p class="subheading">Search for</p>
-            
-            <div class="hero-buttons">
-                <a href="jobs.html" class="hero-btn">Latest Jobs &raquo;</a>
-                <a href="admit-card.html" class="hero-btn">Admit Cards &raquo;</a>
-                <a href="results.html" class="hero-btn">Results &raquo;</a>
-            </div>
-            
-            <div class="arrow-line"></div>
+        <button id="submitButton" class="submit-button">
+            Aage Chale <span class="button-icon">&raquo;</span>
+        </button>
+        
+        <div class="bottom-hearts">
+             &#x2764; &#x2764; &#x2764;
         </div>
     </div>
-</section>
 
-<!-- latest-jobs section -->
+    <script>
+        const codeInput = document.getElementById('codeInput');
+        const submitButton = document.getElementById('submitButton');
+        const forgotCode = document.getElementById('forgotCode');
+        const hintText = document.getElementById('hint-text');
 
-<section class="latest-jobs-section">
-    <div class="container">
-        <h2 class="section-title">🔥 Latest Jobs</h2>
-        <div id="jobs-grid" class="jobs-grid">
-            </div>
-    </div>
-</section>
+        submitButton.addEventListener('click', function() {
+            // User के input को लेना और शुरू-आखिर के space हटाना
+            const userInput = codeInput.value.trim();
 
-<!-- RESULTS ABDMIT CARD LISTS  -->
+            // यह पैटर्न 'n' से शुरू होने वाले, बीच में किसी भी इमोजी वाले,
+            // और 'k' पर खत्म होने वाले कोड को ढूंढेगा।
+            // यह Capital/Small लेटर और space को भी handle करता है।
+            const correctPattern = /^n\s*\p{Emoji}\s*k$/iu;
 
-<section class="info-section">
-    <div class="container">
-        <div class="info-grid">
-            <div class="info-column">
-                <div class="info-heading">RESULT</div>
-                <ul id="results-list">
-                    </ul>
-            </div>
-            
-            <div class="info-column">
-                <div class="info-heading">ADMIT CARD</div>
-                <ul id="admit-card-list">
-                    </ul>
-            </div>
-        </div>
-    </div>
-</section>
+            // जांचना कि user का input पैटर्न से मेल खाता है या नहीं
+            if (correctPattern.test(userInput)) {
+                // अगर कोड सही है, तो page2.html पर जाएं
+                window.location.href = 'page2.html';
+            } else {
+                // अगर कोड गलत है, तो alert दिखाएं
+                alert("Bas bhula gailu, thik se code daal.");
+                codeInput.value = ''; // गलत इनपुट को खाली कर दें
+            }
+        });
 
-<!-- SYLLABUS SECTION AND LATTEST JOB -->
-<section class="info-section">
-    <div class="container">
-        <div class="info-grid">
-            <div class="info-column">
-                <div class="info-heading">LATEST JOBS</div>
-                <ul id="latest-jobs-list">
-                    </ul>
-            </div>
-            
-            <div class="info-column">
-                <div class="info-heading">SYLLABUS</div>
-                <ul id="syllabus-list">
-                    </ul>
-            </div>
-        </div>
-    </div>
-</section>
+        forgotCode.addEventListener('click', function() {
+            // hint को दिखाना या छिपाना
+            if (hintText.style.display === 'block') {
+                hintText.style.display = 'none';
+            } else {
+                hintText.style.display = 'block';
+            }
+        });
+    </script>
 
-
-
-   <footer class="site-footer">
-    <div class="container footer-content">
-        <div class="footer-about">
-            <h3>YuvaSarkari</h3>
-            <p>Your one-stop destination for the latest government job alerts, results, admit cards, and syllabus information across India.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Important Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024-2025 YuvaSarkari. All rights reserved.</p>
-    </div>
-</footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
