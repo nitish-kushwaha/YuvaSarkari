@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday, Nikki!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Great+Vibes&display=swap"
+        rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -21,8 +25,10 @@
 
         #reveal-overlay {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: #1a0321;
             display: flex;
             justify-content: center;
@@ -31,7 +37,7 @@
             cursor: pointer;
             transition: opacity 1s ease-out;
         }
-        
+
         #reveal-overlay h2 {
             color: white;
             font-family: 'Great Vibes', cursive;
@@ -41,9 +47,17 @@
         }
 
         @keyframes pulse-text {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .main-content {
@@ -60,7 +74,9 @@
         }
 
         @keyframes fade-in {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         #profile-pic {
@@ -75,9 +91,11 @@
         }
 
         @keyframes scale-up {
-            to { transform: scale(1); }
+            to {
+                transform: scale(1);
+            }
         }
-        
+
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 5em;
@@ -89,10 +107,17 @@
         }
 
         @keyframes slide-in {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-        
+
         .message {
             max-width: 600px;
             font-size: 1.3em;
@@ -101,7 +126,7 @@
             animation: slide-in 1.5s 0.5s forwards;
             opacity: 0;
         }
-        
+
         .confetti {
             position: fixed;
             top: -20px;
@@ -110,15 +135,21 @@
             opacity: 0.8;
             animation: confetti-fall linear infinite;
         }
-        
+
         @keyframes confetti-fall {
-            from { transform: translateY(0) rotateZ(0); }
-            to { transform: translateY(105vh) rotateZ(720deg); }
+            from {
+                transform: translateY(0) rotateZ(0);
+            }
+
+            to {
+                transform: translateY(105vh) rotateZ(720deg);
+            }
         }
     </style>
 </head>
+
 <body>
-    
+
     <audio id="birthday-song" loop>
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
@@ -129,13 +160,26 @@
 
     <div class="main-content">
         <img id="profile-pic" src="YOUR_PHOTO.jpg" alt="Happy Birthday Nikki">
-        
+
         <h1>Happy Birthday, Nikki</h1>
-        
+
         <p class="message">
-            आज का दिन दुनिया के सबसे प्यारे इंसान का दिन है... तुम्हारा दिन!
-            तुम्हारी हंसी मेरी दुनिया को रोशन करती है और तुम्हारा साथ मेरी जिंदगी को पूरा करता है।
-            मैं तुम्हारे सारे सपनों के सच होने की कामना करता हूँ। हमेशा ऐसे ही मुस्कुराती रहो।
+            तारों से रोशन हो जीवन तुम्हारा,
+            चाँदनी से चमके हर पल तुम्हारा।
+            दुआ है रब से ये दिल से हमारी,
+            हर ख़ुशी से भरा हो जनमदिन तुम्हारा।
+
+            🌹 Nikki, तू है मेरी जान से प्यारी,
+            तेरी हँसी है सबसे खूबसूरत हमारी।
+            तेरे साथ हर दिन हो जैसे त्योहार,
+            तेरे बिना अधूरी है मेरी ये दुनिया सारी।
+
+            🎂 जनमदिन की तुझको लाखों बधाई,
+            तेरे बिना ये ज़िंदगी है कुछ अधूरी सी भाई।
+            मिल जाए तुझे हर वो चीज़ जो तेरा ख्वाब है,
+            क्योंकि तू ही मेरी दुनिया, तू ही मेरा जवाब है। 💞
+
+
             <br><br>
             I love you more than words can say.
         </p>
@@ -177,4 +221,5 @@
         }
     </script>
 </body>
+
 </html>
